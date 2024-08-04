@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Controller;
+namespace App\Tests\Application\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -28,5 +28,13 @@ class HomepageControllerTest extends WebTestCase
         $client->request('GET', '/');
 
         $this->assertResponseStatusCodeSame(200);
+    }
+
+    public function testIndexFailWrongMethod(): void
+    {
+        $client = static::createClient();
+        $client->catchExceptions(false);
+        $this->expectException(\Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException::class);
+        $client->request('POST', '/');
     }
 }
