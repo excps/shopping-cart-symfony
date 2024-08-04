@@ -24,7 +24,7 @@ class Cart
     /**
      * @var Collection<int, CartItem>
      */
-    #[ORM\OneToMany(targetEntity: CartItem::class, mappedBy: 'cart_id', orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: CartItem::class, mappedBy: 'cart', orphanRemoval: true)]
     private Collection $cartItems;
 
     public function __construct()
@@ -80,7 +80,7 @@ class Cart
     {
         if (!$this->cartItems->contains($cartItem)) {
             $this->cartItems->add($cartItem);
-            $cartItem->setCartId($this);
+            $cartItem->setCart($this);
         }
 
         return $this;
@@ -90,8 +90,8 @@ class Cart
     {
         if ($this->cartItems->removeElement($cartItem)) {
             // set the owning side to null (unless already changed)
-            if ($cartItem->getCartId() === $this) {
-                $cartItem->setCartId(null);
+            if ($cartItem->getCart() === $this) {
+                $cartItem->setCart(null);
             }
         }
 

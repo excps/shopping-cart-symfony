@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20240804062822 extends AbstractMigration
+final class Version20240804144250 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -21,8 +21,8 @@ final class Version20240804062822 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TABLE cart (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, code VARCHAR(255) NOT NULL, total_price INTEGER DEFAULT NULL)');
-        $this->addSql('CREATE TABLE cart_item (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, cart_id_id INTEGER NOT NULL, code VARCHAR(255) NOT NULL, name VARCHAR(255) NOT NULL, price INTEGER NOT NULL, quantity INTEGER NOT NULL, CONSTRAINT FK_F0FE252720AEF35F FOREIGN KEY (cart_id_id) REFERENCES cart (id) NOT DEFERRABLE INITIALLY IMMEDIATE)');
-        $this->addSql('CREATE INDEX IDX_F0FE252720AEF35F ON cart_item (cart_id_id)');
+        $this->addSql('CREATE TABLE cart_item (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, cart_id INTEGER NOT NULL, code VARCHAR(255) NOT NULL, name VARCHAR(255) NOT NULL, price INTEGER NOT NULL, quantity INTEGER NOT NULL, CONSTRAINT FK_F0FE25271AD5CDBF FOREIGN KEY (cart_id) REFERENCES cart (id) NOT DEFERRABLE INITIALLY IMMEDIATE)');
+        $this->addSql('CREATE INDEX IDX_F0FE25271AD5CDBF ON cart_item (cart_id)');
     }
 
     public function down(Schema $schema): void
