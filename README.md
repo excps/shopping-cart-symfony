@@ -1,4 +1,6 @@
-# Symfony Docker
+# Shopping Cart API based of Symfony Docker
+
+For implementation details see [Implementation.md](Implementation.md).
 
 A [Docker](https://www.docker.com/)-based installer and runtime for the [Symfony](https://symfony.com) web framework,
 with [FrankenPHP](https://frankenphp.dev) and [Caddy](https://caddyserver.com/) inside!
