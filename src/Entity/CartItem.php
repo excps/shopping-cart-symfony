@@ -1,0 +1,103 @@
+<?php
+
+namespace App\Entity;
+
+use App\Repository\CartItemRepository;
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity(repositoryClass: CartItemRepository::class)]
+class CartItem
+{
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $code = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $name = null;
+
+    #[ORM\Column]
+    private ?int $price = null;
+
+    #[ORM\Column]
+    private ?int $quantity = null;
+
+    #[ORM\ManyToOne(inversedBy: 'cartItems')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Cart $cart_id = null;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): static
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): static
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): static
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getPrice(): ?int
+    {
+        return $this->price;
+    }
+
+    public function setPrice(int $price): static
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(int $quantity): static
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    public function getCartId(): ?Cart
+    {
+        return $this->cart_id;
+    }
+
+    public function setCartId(?Cart $cart_id): static
+    {
+        $this->cart_id = $cart_id;
+
+        return $this;
+    }
+}
