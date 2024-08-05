@@ -5,17 +5,34 @@ namespace App\Repository;
 use App\Entity\Cart;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Psr\Log\LoggerInterface;
+use Symfony\Component\Uid\Uuid;
 
 /**
  * @extends ServiceEntityRepository<Cart>
  */
 class CartRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(ManagerRegistry $registry, private LoggerInterface $logger)
     {
         parent::__construct($registry, Cart::class);
     }
 
+
+    public function findAll(): array
+    {
+        return [1,2,2];
+    }
+
+    public function createCart(): Cart
+    {
+        $cart = new Cart();
+        $cart->setCode(Uuid::v4()->toString());
+        $cart->setCreatedAt(new \DateTimeImmutable());
+        $cart->getTotalPrice();
+
+        return $cart;
+    }
     //    /**
     //     * @return Cart[] Returns an array of Cart objects
     //     */
