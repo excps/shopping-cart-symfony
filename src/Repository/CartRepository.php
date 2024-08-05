@@ -29,6 +29,7 @@ class CartRepository extends ServiceEntityRepository
     {
         $cart = new Cart();
         $cart->setCode(Uuid::v4()->toString());
+        $cart->setCreatedAt(new \DateTimeImmutable('now'));
         $cart->getTotalPrice();
 
         return $cart;

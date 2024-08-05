@@ -35,3 +35,7 @@ phpstan.neon
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+
+###> DB Data ###
+/docker/
+###< DB Data ###
