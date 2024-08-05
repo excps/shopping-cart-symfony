@@ -18,17 +18,17 @@ class CartRepository extends ServiceEntityRepository
         parent::__construct($registry, Cart::class);
     }
 
-
     public function findAll(): array
     {
-        return [1,2,2];
+        $this->logger->info('Fetching all carts');
+
+        return [new Cart()];
     }
 
     public function createCart(): Cart
     {
         $cart = new Cart();
         $cart->setCode(Uuid::v4()->toString());
-        $cart->setCreatedAt(new \DateTimeImmutable());
         $cart->getTotalPrice();
 
         return $cart;
