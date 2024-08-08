@@ -62,6 +62,9 @@
             ".php-cs-fixer.dist.php"
         ]
     },
+    "liip/test-fixtures-bundle": {
+        "version": "3.1.0"
+    },
     "phpstan/phpstan": {
         "version": "1.11",
         "recipe": {

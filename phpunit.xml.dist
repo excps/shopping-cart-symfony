@@ -23,10 +23,13 @@
         </testsuite>
     </testsuites>
 
-    <coverage processUncoveredFiles="true">
-        <include>
-            <directory suffix=".php">src</directory>
-        </include>
+    <coverage includeUncoveredFiles="true"
+              pathCoverage="false"
+              ignoreDeprecatedCodeUnits="false"
+              disableCodeCoverageIgnore="true">
+        <report>
+            <html outputDirectory=".phpunit.coverage.html"/>
+        </report>
     </coverage>
 
     <listeners>
@@ -34,5 +37,6 @@
     </listeners>
 
     <extensions>
+        <extension class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension" />
     </extensions>
 </phpunit>
