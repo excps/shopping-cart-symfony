@@ -30,8 +30,13 @@ class Cart
     #[ORM\Column(type: 'datetime_immutable', options: ['default' => 'CURRENT_TIMESTAMP'])]
     private ?\DateTimeImmutable $created_at = null;
 
-    public function __construct()
+    /**
+     * @throws \Exception
+     */
+    public function __construct(string $code = '')
     {
+        $this->code = $code;
+        $this->created_at = new \DateTimeImmutable('now', new \DateTimeZone('UTC'));
         $this->cartItems = new ArrayCollection();
     }
 
@@ -40,6 +45,9 @@ class Cart
         return $this->id;
     }
 
+    /**
+     * @return $this
+     */
     public function setId(int $id): static
     {
         $this->id = $id;
@@ -52,6 +60,9 @@ class Cart
         return $this->code;
     }
 
+    /**
+     * @return $this
+     */
     public function setCode(string $code): static
     {
         $this->code = $code;
@@ -79,6 +90,9 @@ class Cart
         return $this->cartItems;
     }
 
+    /**
+     * @return $this
+     */
     public function addCartItem(CartItem $cartItem): static
     {
         if (!$this->cartItems->contains($cartItem)) {
@@ -89,6 +103,9 @@ class Cart
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function removeCartItem(CartItem $cartItem): static
     {
         $this->cartItems->removeElement($cartItem);
@@ -101,6 +118,9 @@ class Cart
         return $this->created_at;
     }
 
+    /**
+     * @return $this
+     */
     public function setCreatedAt(\DateTimeImmutable $created_at): static
     {
         $this->created_at = $created_at;

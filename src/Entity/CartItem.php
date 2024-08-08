@@ -40,6 +40,9 @@ class CartItem
         return $this->id;
     }
 
+    /**
+     * @return $this
+     */
     public function setId(int $id): static
     {
         $this->id = $id;
@@ -52,6 +55,9 @@ class CartItem
         return $this->code;
     }
 
+    /**
+     * @return $this
+     */
     public function setCode(string $code): static
     {
         $this->code = $code;
@@ -64,6 +70,9 @@ class CartItem
         return $this->name;
     }
 
+    /**
+     * @return $this
+     */
     public function setName(string $name): static
     {
         $this->name = $name;
@@ -76,6 +85,9 @@ class CartItem
         return $this->price;
     }
 
+    /**
+     * @return $this
+     */
     public function setPrice(int $price): static
     {
         $this->price = $price;
@@ -88,6 +100,9 @@ class CartItem
         return $this->quantity;
     }
 
+    /**
+     * @return $this
+     */
     public function setQuantity(int $quantity): static
     {
         $this->quantity = $quantity;
@@ -100,6 +115,9 @@ class CartItem
         return $this->cart;
     }
 
+    /**
+     * @return $this
+     */
     public function setCart(?Cart $cart): static
     {
         $this->cart = $cart;
@@ -112,6 +130,9 @@ class CartItem
         return $this->created_at;
     }
 
+    /**
+     * @return $this
+     */
     public function setCreatedAt(\DateTimeImmutable $created_at): static
     {
         $this->created_at = $created_at;
