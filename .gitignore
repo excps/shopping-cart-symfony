@@ -25,6 +25,7 @@ phpstan.neon
 /.phpcs-cache
 /phpcs.xml
 ###< squizlabs/php_codesniffer ###
+
 ###> DB Data ###
 /docker/
 ###< DB Data ###

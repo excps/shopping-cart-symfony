@@ -30,19 +30,14 @@ class CartRepository extends ServiceEntityRepository
      *
      * @return mixed[]
      */
-    public function findMyAll(): mixed
+    public function myFindAll(): mixed
     {
         $this->logger->info('Getting all carts in: ' . __METHOD__);
 
         $query = $this->createQueryBuilder('c')
             ->getQuery();
-        $carts = $query->getResult();
 
-        if (!is_array($carts)) {
-            return [];
-        }
-
-        return $carts;
+        return $query->getResult();
     }
 
     /**
@@ -61,6 +56,9 @@ class CartRepository extends ServiceEntityRepository
         $cart->setCode(Uuid::v4()->toString());
         $cart->setCreatedAt(new \DateTimeImmutable('now'));
         $cart->getTotalPrice();
+
+        $this->getEntityManager()->persist($cart);
+        $this->getEntityManager()->flush();
 
         return $cart;
     }
@@ -160,11 +158,13 @@ class CartRepository extends ServiceEntityRepository
      *
      * @param Cart $cart the Cart entity to be saved
      */
-    public function save(Cart $cart): void
+    public function save(Cart $cart): Cart
     {
         $this->logger->info('Saving Cart: ' . $cart->getId());
         $cart->gettotalPrice();
         $this->getEntityManager()->persist($cart);
         $this->getEntityManager()->flush();
+
+        return $cart;
     }
 }
