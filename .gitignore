@@ -1,0 +1,41 @@
+###> PHPStorm ###
+/.idea/
+###> PHPStorm ###
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> MacOS FileSystem ignore ###
+.DS_Store
+###< MacOS FileSystem ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
+
+###> phpstan/phpstan ###
+phpstan.neon
+###< phpstan/phpstan ###
+
+###> squizlabs/php_codesniffer ###
+/.phpcs-cache
+/phpcs.xml
+###< squizlabs/php_codesniffer ###
+
+###> DB Data ###
+/docker/
+###< DB Data ###
+
+###> symfony/phpunit-bridge ###
+.phpunit.coverage.html
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
