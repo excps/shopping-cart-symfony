@@ -140,7 +140,7 @@ class CartRepository extends ServiceEntityRepository
      */
     public function deleteItem(Cart $cart, CartItem $item): Cart
     {
-        $this->logger->info('Adding item to cart: ' . $item->getId());
+        $this->logger->info('Deleting item from cart: ' . $item->getId());
         $this->getEntityManager()->persist($item);
         $cart->removeCartItem($item);
         $cart->getTotalPrice();

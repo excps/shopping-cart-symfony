@@ -63,4 +63,19 @@ class CartItemRepository extends ServiceEntityRepository
         $this->getEntityManager()->persist($item);
         $this->getEntityManager()->flush();
     }
+
+    /**
+     * Deletes a CartItem entity from the database.
+     *
+     * This function removes the given CartItem entity from the database and flushes the changes.
+     * It also logs the action of deleting the item.
+     *
+     * @param CartItem $item the CartItem entity to be deleted
+     */
+    public function delete(CartItem $item): void
+    {
+        $this->logger->info('Deleting Item: ' . $item->getId());
+        $this->getEntityManager()->remove($item);
+        $this->getEntityManager()->flush();
+    }
 }

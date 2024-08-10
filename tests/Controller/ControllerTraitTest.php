@@ -27,7 +27,7 @@ class ControllerTraitTest extends WebTestCase
     #[Test]
     public function self(): void
     {
-        //todo Replace with actual implementation
+        // todo Replace with actual implementation
         $this->assertTrue(true);
     }
 }

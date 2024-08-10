@@ -46,25 +46,18 @@ class CartRepositoryTest extends KernelTestCase
 
         if (null !== $db_cart) {
             $this->assertEquals($cart->getCode(), $db_cart->getCode());
-            $this->assertEquals($cart->getCreatedAt()->getTimezone()->getName(), $db_cart->getCreatedAt()->getTimezone()->getName());
+            $this->assertEquals(
+                $cart->getCreatedAt()->getTimezone()->getName(),
+                $db_cart->getCreatedAt()->getTimezone()->getName()
+            );
             $this->assertEquals($cart->getTotalPrice(), $db_cart->getTotalPrice());
         }
 
         $this->cartCleanup();
     }
 
-    //    #[Test]
-    //    public function searchByName(): void
-    //    {
-    //        $cart = $this->entityManager
-    //            ->getRepository(Cart::class)
-    //            ->findOneBy(['id' => 1]);
-    //
-    //        $this->assertNull($cart);
-    //    }
-
     #[Test]
-    public function MyFindAll(): void
+    public function myFindAll(): void
     {
         $carts = $this->entityManager
             ->getRepository(Cart::class)
@@ -101,7 +94,7 @@ class CartRepositoryTest extends KernelTestCase
     }
 
     #[Test]
-    public function shouldAddCartItemToEmptyCartAndVerifyTotalPrice(): void
+    public function shouldAddCartItemAndVerifyTotalPrice(): void
     {
         $cart = $this->entityManager->getRepository(Cart::class)->createCart();
         $this->cart_ids[] = $cart->getId();
@@ -117,6 +110,8 @@ class CartRepositoryTest extends KernelTestCase
         $this->assertCount(1, $cart->getCartItems());
         $this->assertEquals(200, $cart->getTotalPrice());
 
+        $this->entityManager->getRepository(Cart::class)->deleteItem($cart, $item);
+
         $this->cartCleanup();
     }
 
@@ -130,7 +125,7 @@ class CartRepositoryTest extends KernelTestCase
     }
 
     #[Test]
-    public function shouldPersistCartItemEntityToDatabaseWhenSaveIsCalled(): void
+    public function shouldSaveCartItem(): void
     {
         $cart = $this->entityManager->getRepository(Cart::class)->createCart();
         $this->cart_ids[] = $cart->getId();
@@ -141,6 +136,7 @@ class CartRepositoryTest extends KernelTestCase
         $cartItem->setPrice(100);
         $cartItem->setQuantity(2);
         $cartItem->setCreatedAt(new \DateTimeImmutable('now', new \DateTimeZone('UTC')));
+        $cartItem->setCart($cart);
 
         $cartItemRepository = $this->entityManager->getRepository(CartItem::class);
         $cartItemRepository->save($cartItem);
@@ -152,6 +148,7 @@ class CartRepositoryTest extends KernelTestCase
         $this->assertEquals($cartItem->getPrice(), $savedCartItem->getPrice());
         $this->assertEquals($cartItem->getQuantity(), $savedCartItem->getQuantity());
 
+        $cartItemRepository->delete($savedCartItem);
         $this->cartCleanup();
     }
 
