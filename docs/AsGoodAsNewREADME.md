@@ -68,8 +68,6 @@ This creates a code coverage report as html as well. The report can be found in 
 | 6 | /api/v1/carts/{cart_id}/items/{item_id} | PUT    | Update Cart Item  | json Data    | json Data     |
 | 7 | /api/v1/carts/{cart_id}/items/{item_id} | DELETE | Delete Cart Item  | none         | json Data     |
 
-### Endpoint Difinitions
-
 ## Application Storage
 The API app uses Postgres as the storage engine via synfony's doctrine which holds the tables
 The database data are held in the ``docker/pg_data`` as a bind mount volume from the postges instance in the same docker network.
