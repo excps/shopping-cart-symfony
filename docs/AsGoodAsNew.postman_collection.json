@@ -67,7 +67,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://{{host}}/api/v1/carts/2",
+					"raw": "https://{{host}}/api/v1/carts/1",
 					"protocol": "https",
 					"host": [
 						"{{host}}"
@@ -76,7 +76,7 @@
 						"api",
 						"v1",
 						"carts",
-						"2"
+						"1"
 					]
 				}
 			},
@@ -88,7 +88,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://{{host}}/api/v1/carts/999",
+					"raw": "https://{{host}}/api/v1/carts/1",
 					"protocol": "https",
 					"host": [
 						"{{host}}"
@@ -97,7 +97,7 @@
 						"api",
 						"v1",
 						"carts",
-						"999"
+						"1"
 					]
 				}
 			},
@@ -130,7 +130,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"code\": \"{{$randomUUID}}\",\n    \"name\": \"{{$randomNoun}}\",\n    \"price\": {{price}},\n    \"quantity\": {{quantity}},\n}",
+					"raw": "{\n    \"code\": \"{{$randomUUID}}\",\n    \"name\": \"{{$randomNoun}}\",\n    \"price\": {{price}},\n    \"quantity\": {{quantity}}\n}",
 					"options": {
 						"raw": {
 							"language": "text"
@@ -138,7 +138,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost/api/v1/carts/2/items",
+					"raw": "https://localhost/api/v1/carts/1/items",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -147,7 +147,7 @@
 						"api",
 						"v1",
 						"carts",
-						"2",
+						"1",
 						"items"
 					]
 				}
@@ -181,7 +181,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"price\": 100,\n    \"quantity\": 5\n}",
+					"raw": "{\n    \"price\": 10,\n    \"quantity\": 5,\n    \"name\": \"testtest\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -189,7 +189,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost/api/v1/carts/23/items/42",
+					"raw": "https://localhost/api/v1/carts/1/items/1",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -198,9 +198,9 @@
 						"api",
 						"v1",
 						"carts",
-						"23",
+						"1",
 						"items",
-						"42"
+						"1"
 					]
 				}
 			},
@@ -212,7 +212,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://{{host}}/api/v1/carts/3/items/9",
+					"raw": "https://{{host}}/api/v1/carts/1/items/1",
 					"protocol": "https",
 					"host": [
 						"{{host}}"
@@ -221,9 +221,9 @@
 						"api",
 						"v1",
 						"carts",
-						"3",
+						"1",
 						"items",
-						"9"
+						"1"
 					]
 				}
 			},
