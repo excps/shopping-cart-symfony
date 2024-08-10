@@ -70,7 +70,7 @@ This creates a code coverage report as html as well. The report can be found in 
 
 ## Application Storage
 The API app uses Postgres as the storage engine via synfony's doctrine which holds the tables
-The database data are held in the ``docker/pg_data`` as a bind mount volume from the postges instance in the same docker network.
+The database data are held in the ``docker/pg_data`` as a bind mount volume from the postgres instance in the same docker network.
 The reset the data for testing purposes just delete the directory and ``docker compose down / up -d`` to rerun the migration  
 
 1. ```cart``` for holding ```Cart``` data
