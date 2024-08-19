@@ -14,7 +14,7 @@ use Symfony\Component\HttpKernel\Attribute\Cache;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/api/v1/carts/{id<\d+>}/items', name: 'app_api_v1_carts_add_item', methods: ['POST'])]
-class CartItemAddController extends AbstractController
+class CartItemAddApiController extends AbstractController
 {
     use ControllerTrait;
 

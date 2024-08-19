@@ -15,7 +15,7 @@ use Symfony\Component\HttpKernel\Attribute\Cache;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/api/v1/carts/{id<\d+>}/items/{item_id<\d+>}', name: 'app_api_v1_carts_update_item', methods: ['PUT'])]
-class CartItemUpdateController extends AbstractController
+class CartItemUpdateApiController extends AbstractController
 {
     use ControllerTrait;
 
