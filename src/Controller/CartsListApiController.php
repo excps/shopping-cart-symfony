@@ -44,7 +44,6 @@ class CartsListApiController extends AbstractController
     {
         try {
             $carts = $this->repository->findAll();
-
             return $this->json(
                 [
                     '_type' => 'CartCollection',
